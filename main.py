@@ -20,3 +20,12 @@ def operation(operator, a, b):
         return myDiv(a, b)
     else:
         print(f'Operation {operator} is not allowed')
+
+
+def evaluate(number_list, operation_list):
+    if operation_list[0] in ('+', '-') and operation_list[1] in ('*', '/'):
+        temp = operation(operation_list[1], number_list[1], number_list[2])
+        return operation(operation_list[0], number_list[0], temp)
+    else:
+        temp = operation(operation_list[0], number_list[0], number_list[1])
+        return operation(operation_list[1], temp, number_list[2])
