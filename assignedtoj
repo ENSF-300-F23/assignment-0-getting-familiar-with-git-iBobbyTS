@@ -11,7 +11,7 @@ def myDiv(a, b):
     if b != 0:
         return a // b
     else:
-        return a // b
+        return "division by zero is not allowed."
 
 def validint(val):
     while True:
