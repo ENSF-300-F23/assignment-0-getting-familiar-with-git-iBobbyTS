@@ -55,7 +55,7 @@ def valid_op(user_prompt):
         if user_input in ['+', '-', '*', '/']:
             return user_input
         else:
-            return 'invalid operation input.'
+            print('invalid operation input.')
 
 
 def get_int(user_prompt):
