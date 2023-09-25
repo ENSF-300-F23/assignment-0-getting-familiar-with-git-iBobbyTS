@@ -50,6 +50,13 @@ def myDiv(a, b):
         return "division by zero is not allowed."
 
 
+def valid_op(user_input):
+    if user_input in ['+', '-', '*', '/']:
+        return user_input
+    else:
+        return 'invalid operation input.'
+
+
 def valid_int(user_input):
     if user_input.lstrip('-').isdigit():
         return int(user_input)
