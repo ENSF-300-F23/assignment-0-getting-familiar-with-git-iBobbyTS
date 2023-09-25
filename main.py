@@ -18,8 +18,6 @@ def operation(operator, a, b):
         return myMul(a, b)
     elif operator == '/':
         return myDiv(a, b)
-    else:
-        print(f'Operation {operator} is not allowed')
 
 
 def evaluate(number_list, operation_list):
