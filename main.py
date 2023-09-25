@@ -50,12 +50,8 @@ def myDiv(a, b):
         return "division by zero is not allowed."
 
 
-def validint(val):
-    while True:
-        user_input = input(val)
-    
-        if user_input.lstrip('-').isdigit():
-            return int(user_input)
-        
-        else:
-            print('invalid input value.')
+def valid_int(user_input):
+    if user_input.lstrip('-').isdigit():
+        return int(user_input)
+    else:
+        return 'invalid input value.'
