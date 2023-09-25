@@ -66,3 +66,18 @@ def get_int(user_prompt):
             return int(user_input)
         else:
             print('invalid input value.')
+
+def display(value_list,operator_list):
+    print(f"Entered expression:{value_list[0]}{operator_list[0]}{value_list[1]}{operator_list[1]}{value_list[2]}")
+    result = evaluate(value_list, operator_list)
+    print(f"Your final answer:{result}")
+
+if __name__ == "__main__":
+    value=[]
+    operator=[]
+    value.append(get_int("Enter the first value:"))
+    operator.append(valid_op("Enter the first operator:"))
+    value.append(get_int("Enter the second value:"))
+    operator.append(valid_op("Enter the second operator:"))
+    value.append(get_int("Enter the third value:"))
+    display(value,operator)
