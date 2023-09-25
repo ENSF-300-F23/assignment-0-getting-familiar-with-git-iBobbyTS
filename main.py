@@ -42,10 +42,7 @@ def myMul(a, b):
 
 
 def myDiv(a, b):
-    if b != 0:
-        return a // b
-    else:
-        return "division by zero is not allowed."
+    return a // b
 
 
 def valid_op(user_prompt):
@@ -58,28 +55,27 @@ def valid_op(user_prompt):
             print('invalid operation input.')
 
 
-def get_int(user_prompt):
+def get_int(user_prompt, disallow_zero=False):
     while True:
         user_input = input(user_prompt)
-
-        if user_input.lstrip('-').isdigit():
+        if user_input.lstrip('-').isdigit() and (not disallow_zero or int(user_input) != 0):
             return int(user_input)
         else:
             print('invalid input value.')
 
 
 def display(value_list, operator_list):
-    print(f"Entered expression:{value_list[0]}{operator_list[0]}{value_list[1]}{operator_list[1]}{value_list[2]}")
+    print(f"Entered expression: {value_list[0]} {operator_list[0]} {value_list[1]} {operator_list[1]} {value_list[2]}")
     result = evaluate(value_list, operator_list)
-    print(f"Your final answer:{result}")
+    print(f"Your final answer = {result}")
 
 
 if __name__ == "__main__":
     value = []
     operator = []
-    value.append(get_int("Enter the first value:"))
-    operator.append(valid_op("Enter the first operator:"))
-    value.append(get_int("Enter the second value:"))
-    operator.append(valid_op("Enter the second operator:"))
-    value.append(get_int("Enter the third value:"))
+    value.append(get_int("Enter the first value: "))
+    operator.append(valid_op("Enter the first operator: "))
+    value.append(get_int("Enter the second value: ", operator[-1]=='/'))
+    operator.append(valid_op("Enter the second operator: "))
+    value.append(get_int("Enter the third value: ", operator[-1]=='/'))
     display(value, operator)
