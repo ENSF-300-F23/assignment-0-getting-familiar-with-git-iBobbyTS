@@ -27,7 +27,7 @@ def evaluate(number_list, operation_list):
     else:
         temp = operation(operation_list[0], number_list[0], number_list[1])
         return operation(operation_list[1], temp, number_list[2])
-    
+
 
 def myAdd(a, b):
     return a + b
@@ -41,7 +41,7 @@ def myMul(a, b):
     return a * b
 
 
-def myDiv(a, b): 
+def myDiv(a, b):
     if b != 0:
         return a // b
     else:
@@ -51,7 +51,7 @@ def myDiv(a, b):
 def valid_op(user_prompt):
     while True:
         user_input = input(user_prompt)
-        
+
         if user_input in ['+', '-', '*', '/']:
             return user_input
         else:
@@ -61,23 +61,25 @@ def valid_op(user_prompt):
 def get_int(user_prompt):
     while True:
         user_input = input(user_prompt)
-    
+
         if user_input.lstrip('-').isdigit():
             return int(user_input)
         else:
             print('invalid input value.')
 
-def display(value_list,operator_list):
+
+def display(value_list, operator_list):
     print(f"Entered expression:{value_list[0]}{operator_list[0]}{value_list[1]}{operator_list[1]}{value_list[2]}")
     result = evaluate(value_list, operator_list)
     print(f"Your final answer:{result}")
 
+
 if __name__ == "__main__":
-    value=[]
-    operator=[]
+    value = []
+    operator = []
     value.append(get_int("Enter the first value:"))
     operator.append(valid_op("Enter the first operator:"))
     value.append(get_int("Enter the second value:"))
     operator.append(valid_op("Enter the second operator:"))
     value.append(get_int("Enter the third value:"))
-    display(value,operator)
+    display(value, operator)
