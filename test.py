@@ -1,7 +1,6 @@
 import subprocess
 import random
 
-
 operation_list = ['+', '-', '*', '/']
 cmd = ['python', 'main.py']
 
@@ -13,6 +12,9 @@ for i in range(1000):
     c = random.randint(-999, 999)
     o1 = random.choice(operation_list)
     o2 = random.choice(operation_list)
+    if b == 0 or c == 0:
+        process.terminate()
+        continue
     true_result = eval(f'({a}){o1.replace("/", "//")}({b}){o2.replace("/", "//")}({c})')
     process.stdin.write(f'{a}\n')
     process.stdin.write(f'{o1}\n')
@@ -21,7 +23,7 @@ for i in range(1000):
     process.stdin.write(f'{c}\n')
     process.stdin.flush()
     output = process.communicate()[0]
-    output = int(true_result == int(output.split('\n')[1][20:]))
+    output = int(true_result != int(output.split('\n')[1][20:]))
     error += output
     process.stdin.close()
     process.wait()
